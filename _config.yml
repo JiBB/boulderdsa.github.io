@@ -13,14 +13,20 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: Your awesome title
-email: your-email@domain.com
+title: Boulder DSA
+email: boulderdsa@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+    Boulder DSA is a local chapter of the Democratic Socialists of America,
+    covering Boulder and Broomfield counties.  We find that unchecked capitalism
+    has created a society that puts corporate profit above human rights, and we
+    are committed to changing that through direct, grassroots action.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://boulderdsa.org" # the base hostname & protocol for your site, e.g. http://example.com
+author: Boulder DSA
+twitter:
+    username: boulderDSA
+facebook:
+    publisher: https://www.facebook.com/boulderdsa/
 
 # Build settings
 markdown: kramdown
@@ -30,14 +36,17 @@ permalink: pretty
 exclude:
     - CNAME
     - README.md
+    - Gemfile
+    - Gemfile.lock
 
 sass:
 #    style: :compressed
 
-collections:
-  groups:
-    output: true
-    permalink: /:collection/:name/
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-redirect-from
 
 defaults:
   - scope:
@@ -46,32 +55,34 @@ defaults:
       layout: null
   - scope:
       path: ""
+      type: posts
+    values:
+      layout: newspost
+      category: news
+  - scope:
+      path: ""
       type: pages
     values:
       layout: default
       title_prefix: ""
-  - scope:
-      path: ""
-      type: groups
-    values:
-      layout: default
-      title_prefix: "Working Group: "
 
 
 # Site data
 navlinks:
 - title: About Us
   url: /about/
-- title: News
-  url: /news/
+#- title: News
+#  url: /news/
 - title: Resources
   url: /resources/
 - title: Calendar
   url: /calendar/
 - title: CU YDSA
   url: /ydsa/
-- title: Contact Us
+- title: Contact
   url: /contact/
+- title: Join Us
+  url: /join/
 
 socialmedia:
 - name: facebook
@@ -79,8 +90,8 @@ socialmedia:
 - name: twitter
   url: https://twitter.com/boulderDSA
 - name: instagram
-  url: #
+  url:
 - name: mastodon
-  url: "#"
+  url: https://soc.ialis.me/@BoulderDSA
 - name: diaspora
-  url: "#"
+  url: https://diaspora.town/people/c63a0750139a0136f3aa001c4202e28a

@@ -1,7 +1,7 @@
 ---
+title: News
+layout: postlist
 ---
-# News
-
-This will contain a listing of recent news posts and a link to the archive.
-
-Nothing to see here… yet.
+{%- comment -%}
+Only non-post-list content here.  A list of all posts and exerpts from them will follow.
+{%- endcomment -%}
